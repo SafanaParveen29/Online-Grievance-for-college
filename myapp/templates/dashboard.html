@@ -1,0 +1,25 @@
+{%include 'header.html'%}
+{% load static %}
+
+
+        <div class="main-panel">
+          <div class="content-wrapper pb-0">
+            <div class="page-header flex-wrap">
+              {% if messages %}
+              {% for i in messages %}
+              <div class="alert alert-success">{{i}}</div>
+                      {% endfor %}
+                      {% endif %}
+              
+              <h3 class="mb-0"> Hi, welcome back!</h3>
+	
+            </div>
+           
+          </div>
+          <footer class="footer">
+            <div class="d-sm-flex justify-content-center justify-content-sm-between">
+              <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2022</span>
+ 
+            </div>
+          </footer>
+        </div>

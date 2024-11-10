@@ -1,0 +1,63 @@
+{%include 'header.html'%}
+<div class="container" style="margin:0 auto;padding-top:100px;">
+<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" >
+    <div class="card" >
+        {% if messages %}
+                {% for i in messages %}
+                    <div class="alert alert-success">{{i}}</div>
+                {% endfor %}
+            {% endif %}
+            
+        <h5 class="card-header">Hostel Grievance</h5>
+        <div class="card-body">
+            <div class="table-responsive ">
+                <table class="table table-bordered">
+                    <thead style="background: #ff084e;color: #FFF">
+                        <tr class="white">
+                            <th>Sno</th>
+                            <th>Student Name</th>                            
+							<th>IssueType</th>
+							<th>Room Number</th>
+							<th>Issue</th>
+                            <th>Impact</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in cmp %}
+                        <tr style="background: #FFF;color: #000">
+                            <td>{{forloop.counter}}</td>
+                            <td>{{i.student.RollNo}}</td>
+							<td>{{i.IssueType}}</td>							
+							<td>{{i.RoomNumber}}</td>	
+                            <td>{{i.Issue}}</td>	
+                            <td>{{i.Impact}}</td>	
+                            <form method="POST">	
+                                {%csrf_token%}					
+							<td>
+                                <select name="status">
+                                <option value="{{i.status}}">{{i.status}}</option>
+                                
+                                {% for category_key, category_value in STATUS_CHOICES %}
+                                  <option value="{{ category_key }}">{{ category_value }}</option>
+                                {% endfor %}
+                                </select>
+                            </td>
+
+                            <td><button type="submit" class="btn btn-space btn-primary">update</button>
+                            </td>	
+                        </form>			
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="8" class="text-center bg-primary">No Friends</td>
+                        </tr>
+                       {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

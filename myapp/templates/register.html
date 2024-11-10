@@ -1,0 +1,63 @@
+{% include 'db_head.html' %}
+{% load static %}
+
+
+     <div class="container" style="width:60%;padding-bottom:20px;" >
+                  <div class="checkout-address" style="padding-top:20px;">
+                      <div class="title-left">
+                          <h3>REGISTER</h3>
+                      </div>
+                      {% if messages %}
+              {% for i in messages %}
+                  <div class="alert alert-success">{{i}}</div>
+              {% endfor %}
+          {% endif %}
+                      <form method="post">
+                        {% csrf_token %}
+                          <div class="row">
+                              <div class="col-md-6 mb-3">
+                                  <label for="firstName">First name *</label>
+                                  <input type="text" name="FirstName" class="form-control" id="firstName" placeholder="" value="" required>
+                                  <div class="invalid-feedback"> Valid first name is required. </div>
+                              </div>
+                              <div class="col-md-6 mb-3">
+                                  <label for="lastName">Last name *</label>
+                                  <input type="text" name="LastName" class="form-control" id="lastName" placeholder="" value="" required>
+                                  <div class="invalid-feedback"> Valid last name is required. </div>
+                              </div>
+                          </div>
+                           <div class="row">
+                          <div class="col-md-6 mb-3">
+                              <label for="RollNo">RollNo *</label>
+                              <div class="input-group">
+                                  <input type="text" name="RollNo" class="form-control" id="username" placeholder="" required>
+                                  <div class="invalid-feedback" style="width: 100%;"> Your RollNo is required. </div>
+                              </div>
+                          </div>
+                           <div class="col-md-6 mb-3">
+                              <label for="studentEmail">Email Address *</label>
+                              <input type="studentEmail" name="studentEmail" class="form-control" id="studentEmail" placeholder="">
+                              <div class="invalid-feedback"> Please enter a valid email address for shipping updates. </div>
+                          </div>
+                          <div class="col-md-12 mb-3">
+                                  <label for="PhoneNumber">Phone Number *</label>
+                                  <input type="text" class="form-control" id="PhoneNumber" placeholder="" required name="PhoneNumber">
+                                  <div class="invalid-feedback"> Please provide a valid Phone Number. </div>
+                              </div>
+                          </div>
+                         
+                           <div class="mb-3">
+                              <label for="studentPassword">Password</label>
+                              <input type="password" class="form-control" id="studentPassword" placeholder="" name="studentPassword"> 
+                            </div>
+                          <div class="mb-3">
+                              <label for="ConfirmPassword">Confirm Password *</label>
+                              <input type="password" class="form-control" id="ConfirmPassword" placeholder="" name="ConfirmPassword"> 
+                              <div class="invalid-feedback"> Please enter your password correctly. </div>
+                          </div>
+                          
+                      <input type="submit" class="btn karl-checkout-btn" value="Create an Account" style="margin:20px 0;"></form>
+                  </div>  </div>
+              
+{% include 'footer.html' %}
+   
